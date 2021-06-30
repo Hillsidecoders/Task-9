@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Autour One' rel='stylesheet'>
+<style>
+* { box-sizing: border-box;}
+body {background-image: url("Colors.gif"); background-repeat: no-repeat; background-position: right top; background-size: cover; background-attachment: fixed; align-content: center; margin: 0;}
+.header { font-family: 'Autour One'; font-size: 50px; margin: 0; padding: 45px 0px;}
+.glow { color: rgb(0, 0, 0); animation: glow 2s ease-in-out infinite alternate;}
+@keyframes glow { from { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fce375, 0 0 40px #f7dd4a, 0 0 50px #f3cc1f, 0 0 60px #fffb10, 0 0 70px #fded03;}
+  to { text-shadow: 0 0 20px #fff, 0 0 30px #00ebdf, 0 0 40px #4dfff6, 0 0 50px #a7fcee, 0 0 60px #ccf8f4, 0 0 70px #41f9ff, 0 0 80px #13fdde;}}
+ul.nav { list-style-type: none; margin: 0; padding: 0 25px; overflow: hidden; background-color: rgba(150, 148, 148, 0.808);}
+ul.nav li a.active { background-color: #4CAF50; color: white;}
+li { float: left;}
+ul.nav li a:hover:not(.active) { background-color: #555; color: white;}
+div.content { margin-left: 5%; padding: 1px 16px; height: 1000px; color: white;}
+.contain0 { background-color: rgba(218, 218, 218, 0.493); min-height: 100px; margin: 0;}
+.containhead { background-color: #e5e5e5; height: 150px; margin: 0;}
+.tabcontent { display: none; padding: 6px 12px; animation: fadeEffect 1s;}
+@keyframes fadeEffect { from {opacity: 0;} to {opacity: 1;}}
+li a, .dropbtn { display: inline-block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;}
+.dropdown-content li.dropdown { display: block;}
+.dropdown-content { display: none !important; position: absolute; background-color: #f9f9f9; min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1;}
+.dropdown-content a { color: black; padding: 12px 16px; text-decoration: none; display: block !important; text-align: left;}
+.dropdown-content a:hover {background-color: #f1f1f1;}
+.dropdown:hover .dropdown-content { display: block !important;}
+#mySidenav a { position: absolute; left: -475px; transition: 0.7s; padding: 15px; min-width: 100px; text-decoration: none; font-size: 20px; color: white; border-radius: 0 5px 5px 0; height: auto; z-index: 1;}
+#mySidenav a:hover { left: 0; }
+#about { top: 225px; background-color: #04AA6D;}
+.containinp { background-color: rgba(255, 255, 255, 0.678); border-radius: 15px; border: 2px solid #292928; padding: 20px !important; width: 60%; min-height: 70px;  margin: 5vh; }
+.containdisp { background-color: rgba(0, 0, 0, 0.87); color: rgb(255, 255, 255); border-radius: 5px; border: 2px solid #d3d3d3; padding: 2%;  width: 85%; margin: 2% 5%;  min-height: 300px;}
+input[type=text] { background-color: #dadadaaf; color: rgb(0, 0, 0); border: 3px solid #000000; width: 40%; border-radius: 5px; font-family: cursive; padding: 10px 15px;}    
+input[type=text]:focus { background-color: rgb(103, 224, 109);}
+.button { display: inline-block; border-radius: 4px; background-color: #000000; border: none; color: #FFFFFF; text-align: center; font-size: 20px; padding: 10px; width: 150px; transition: all 0.5s; cursor: pointer; margin-left: 50px; margin-top: 15px;}
+.button span { cursor: pointer; display: inline-block; position: relative; transition: 0.5s;}
+.button span:after { content: '\00bb'; position: absolute; opacity: 0; top: 0; right: -20px; transition: 0.5s;}
+.button:hover span { padding-right: 25px;}
+.button:hover span:after { opacity: 1; right: 0;}
+.contain { background-color: rgba(221, 221, 221, 0.801); border-radius: 15px; border: 2px solid #ffffff; padding: 10px;  padding-left: 50px; width: 80%;  margin: 2% 10% 0 5%; }
+.containinpkuber { background-color: rgba(189, 233, 168, 0.877); border-radius: 15px; border: 2px solid #292928; padding: 25px;  padding-left: 50px; width: 80%; height: auto;  margin: 2% 10%;  text-align: left; line-height: 10px; }
+.containinpkuber input[type=text] { background-color: rgb(240, 228, 178); width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;}
+.containinpkuber input[type=number] { width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+.containinpkuber .button { background-color: #f4511e; border: none; color: white; padding: 16px 32px; text-align: center; font-size: 16px; margin: 4px 2px; opacity: 0.6; transition: 0.3s; display: inline-block; text-decoration: none; cursor: pointer; width: 250px; height: 100px;}
+.containinpkuber .button:hover {opacity: 1}
+::-webkit-scrollbar { width: 10px;}
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #888; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
+.footer { background-color: #f1f1f1; padding: 10px; text-align: center;}
+</style>
+</head>
+<body>
+<div class="containhead">
+  <img src="https://media.giphy.com/media/c3OZsDoaz7kD6/giphy.gif" style="float: left; width: 10%; height: 80%; margin-top: 15px; margin-left: 250px; margin-right: -450px;"></img>
+  <center>
+    <h1 class="header glow"> Web UI Application </h1>
+  </center>
+</div>
+
+<ul class="nav">
+    <li><a href="#home" class="tablinks" onclick="openWS(event, 'home')" id="defaultOpen" >Home</a></li>
+    <li><a href="#news" class="tablinks" onclick="openWS(event, 'docker')" >Docker</a></li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Kubernetes</a>
+        <div class="dropdown-content">
+          <a href="#" class="tablinks" onclick="openWS(event, 'gui')">GUI</a>
+          <a href="#" class="tablinks" onclick="openWS(event, 'cli')">CLI</a>
+        </div>
+    </li>
+    <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Blogs</a>
+          <div class="dropdown-content">
+            <a href="https://lnkd.in/esHt4hB">By Geetansh Sharma</a>
+            <a href="https://lnkd.in/gwW5Syy">By Anirudh Grack</a>
+            <a href="https://bit.ly/362BpmA">By Rohit Kumar</a>
+            <a href="https://bit.ly/3qpcLpP">By Abhinav Chaudhary</a>
+          </div>
+      </li>
+  <li style="float: right;"><a href="#about" class="tablinks" onclick="openWS(event, 'home_about')">About</a></li>
+</ul>
+<div class="content" >
+<div id="home" class="tabcontent" style="color:rgb(0, 0, 0);">
+  <div class="contain"> <h1> Task 7 👨🏻‍💻 </h1>
+    <p> Javascript Integration with Docker<br>
+      Task Description 📄<br><br>
+        ⚙️ Task 7.1 -<br>
+        📌 In this task you have to create a Web Application for Docker (one of the great Containerization Tool which provides the user Platform as a Service (PaaS)) by showing your own creativity and UI/UX designing skills to make the webportal user friendly.
+        📌 This app will help the user to run all the docker commands like:<br><br>
+          👉docker images<br>
+          👉docker ps<br>
+          👉docker run<br>
+          👉docker rm -f<br>
+          👉docker exec<br><br>
+      ⚙️ Task 7.2 -<br><br>
+        📌 Write a blog explaining the usecase of javascript in any of your favorite industries.<br>
+    </p>
+  </div>
+  <div class="contain"> <h1> Task 9 👨🏻‍💻 </h1>
+    <p> Kubernetes Integration with Python-CGI<br><br>
+      Team Task Description 📄<br><br>  
+        📌 In continuation of task 7.1 you need to Integrate Kubernetes commands that can be run through webUI created by you. <br>
+        👉 This time create webUI page as such that using normal English conversation your all commands can run in background. <br>
+            Example - when we write 'run deployment using httpd image' then it run complete deployment command in backend. <br><br>
+        Feature necessary -<br>
+          👉 It can launch pods with specific name given by user. <br>
+          👉 Run deployment using image and name given by user. <br>
+          👉 Expose services on given user input port number. <br>
+          👉 Scale the replica according to user need. <br>
+          👉 Delete complete environment created. <br>
+          👉 Delete specific resources given by user. <br>
+            Note - There should be webUI based menu display so that user can get to know what your webapp can do. <br><br>
+        📌 This app will help the user to run all the Kubernetes commands:<br>
+    </p>
+  </div>
+</div>
+
+    <div id="home_about" class="tabcontent" style="color:rgb(0, 0, 0);">
+        <div class="contain"> <h1> 👨🏻‍💻 Summer Internship Program 2021 👨🏻‍💻 </h1>
+          <p> TEAM CODE: <br>
+            Summer_07_02<br><br>
+              ⚙️ Team Members -<br><br>
+                🔥 Geetansh Sharma [ Team Leader ] <br>
+                🔥 Abhinav Chaudhary<br>
+                🔥 Anirudh Grack <br>
+                🔥 Rohit Kumar<br>
+          </p>
+        </div>
+    </div>
+
+  <div id="docker" class="tabcontent">
+    <div id="mySidenav" class="sidenav">
+      <a href="#" id="about">
+        Actions that can be completed using this WEB UI: &emsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br><br><br>
+        1. docker images&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;| &nbsp H<br><br>
+        2. docker ps &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;| &nbsp E<br><br>
+        3. docker exec &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp; &emsp; &emsp;&emsp;| &nbsp L<br><br>
+        4. docker run &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp; &emsp; &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;| &nbsp P<br><br>
+        5. docker rm -f &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;| &nbsp  <br><br>
+        6. And Many More
+      </a>
+    </div>
+    
+    <center>
+      <div class="containinp">
+        <div style=" font-family: Verdana, Geneva, Tahoma, sans-serif; ">
+          [root@localhost ~]# &nbsp; &NonBreakingSpace;<input type="text" id="inp" placeholder="Enter Command Here" onkeyup="typewrite()"> </input>
+          <button class="button" onclick="LinuxCommands()" id = "btn" ><span>Run</span></button>
+        </div>
+      </div>
+    </center>
+
+    <div class="containdisp" > <div id="d2">[root@localhost ~]#</div><br>
+      <pre><div id = "d3"></div></pre>
+    </div>
+  </div>
+
+  <div id="gui" class="tabcontent">
+    <div id="mySidenav" class="sidenav">
+      <a href="#" id="about">
+		    Actions that can be completed using this WEB UI:  &emsp; <br><br><br>
+        1. It can launch pods with specific name given by user. | &emsp;H <br><br>
+        2. Run deployment using image & name given by user. | &ensp;&nbsp; E <br><br>
+        3. Expose services on given user input port number. | &emsp;&ensp; &ensp;L<br><br>
+        4. Scale the replica according to user need. | &emsp; &emsp; &emsp; &emsp;&emsp;P<br><br>
+        5. Delete complete environment created. | &emsp; &emsp;<br><br>
+        6. Delete specific resources given by user. | &emsp; &emsp; <br><br>
+        7. List specific resources given by user. |  &emsp; &emsp;<br><br>
+		    8. List pods. |   <br><br>
+		    9. List deployments. |   <br><br>
+		  </a>
+    </div>
+
+    <center>
+      <div class="containinpkuber">
+        <div style=" font-family: Verdana, Geneva, Tahoma, sans-serif; ">
+          <label for="d1">Image Name</label>          <input type="text" id="iname" placeholder="Enter the image name"><br><br>
+          <label for="d2">Pod Name</label>            <input type="text" id="pname" placeholder="Enter the pod name"><br><br>
+          <label for="d3">Deployment Name</label>     <input type="text" id="dname" placeholder="Enter the deployment name"><br><br>
+          <label for="d4">Number of Replica</label>   <input type="number" id="rno" placeholder="Enter the Replica Number" min="0" max="100"><br><br>
+  
+          <button class="button" onclick="launch();"><span>LAUNCH POD</span></button>
+          <button class="button" onclick="deploy();"><span>RUN DEPLOYMENT</span></button>
+          <button class="button" onclick="expose();"><span>EXPOSE SERVICES</span></button>
+          <button class="button" onclick="scale();"><span>SCALE REPLICAS</span></button>
+          <button class="button" onclick="del_pods();"><span>DELETE POD</span></button>
+          <button class="button" onclick="del_deps();"><span>DELETE DEP...</span></button>
+          <button class="button" onclick="list_pods();"><span>LIST ALL PODS</span></button>
+          <button class="button" onclick="list_deps();"><span>LIST ALL DEP...</span></button>
+        </div>
+      </div>
+    </center>
+
+    <div class="containdisp" > <div id="guid1">[k8s@localhost ~]#</div><br>
+      <pre><div id = "guid2"></div></pre>
+    </div>
+
+  </div>
+      
+  <div id="cli" class="tabcontent" >
+    <div id="mySidenav" class="sidenav">
+      <a href="#" id="about">
+		    Actions that can be completed using this WEB UI:  &emsp; <br><br><br>
+        1. It can launch pods with specific name given by user. | &emsp;H <br><br>
+        2. Run deployment using image & name given by user. | &ensp;&nbsp; E <br><br>
+        3. Expose services on given user input port number. | &emsp;&ensp; &ensp;L<br><br>
+        4. Scale the replica according to user need. | &emsp; &emsp; &emsp; &emsp;&emsp;P<br><br>
+        5. Delete complete environment created. | &emsp; &emsp;<br><br>
+        6. Delete specific resources given by user. | &emsp; &emsp; <br><br>
+        7. List specific resources given by user. |  &emsp; &emsp;<br><br>
+		    8. List pods. |   <br><br>
+		    9. List deployments. |   <br><br>
+      </a>
+    </div>
+      
+    <center>
+      <div class="containinp">
+        <div style=" font-family: Verdana, Geneva, Tahoma, sans-serif; ">
+          [k8s@localhost ~]# &nbsp; &nbsp;<input type="text" id="kuberinp" placeholder="Enter Command Here" onkeyup="typewrite()"> </input>
+          <button class="button" onclick="kube()" id = "btn2" ><span>Run</span></button>
+        </div>
+      </div>
+    </center>
+
+    <div class="containdisp" > <div id="kuberd1">[root@localhost ~]#</div><br>
+      <pre><div id = "kuberd2"></div></pre>
+    </div>
+  </div>
+</div>
+
+<br><br>
+<div class="footer">
+  <p>By - team code - Summer_07_02</p>
+</div>
+
+<script>
+  // Tabs shifting 
+  document.getElementsByClassName("tabcontent")[0].style.display = 'block';
+  document.getElementsByClassName("tablinks")[0].className += ' active';
+
+  function openWS(evt, Name) {
+    var a, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+
+    for (a = 0; a < tabcontent.length; a++) {
+      tabcontent[a].style.display = "none";
+    }
+
+    tablinks = document.getElementsByClassName("tablinks");
+
+    for (a = 0; a < tablinks.length; a++) {
+      tablinks[a].className = tablinks[a].className.replace(" active", "");
+    }
+
+    document.getElementById(Name).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+
+  // docker comands
+
+  w = document.getElementById('d2');
+  j = document.getElementById('inp');
+    
+  function LinuxCommands() {
+    var q =document.getElementById("inp").value
+    var xhr =new XMLHttpRequest();
+    xhr.open("GET","http://192.168.225.25/cgi-bin/linux.py?x="+q,true);
+    xhr.send(); 
+    xhr.onload = function () { document.getElementById('d3').innerHTML = xhr.responseText; }
+  }
+    
+  j.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      document.getElementById("btn").click();
+    }
+  } );
+    
+  function typewrite(){
+    w.innerHTML = "[root@localhost ~]#  "+j.value;
+  }
+  
+  // kubenetes commands
+
+w = document.getElementById("kuberinp")
+    function kube() {
+    var i = document.getElementById("kuberinp").value
+    var stat = "0"
+    var final = ""
+    if (((i.includes("deployments")) || (i.includes("deploy")) || (i.includes("deployment"))) && ((i.includes("create")) || (i.includes("generate")) || (i.includes("build")))) {
+      var image = prompt("Enter the name of image: ")
+      var deployment_name = prompt("Enter the name of Deployment: ")
+      var stat = "1"
+      var final = stat + " " + image + " " + deployment_name 
+      }
+  
+    else if (((i.includes("pods")) || (i.includes("pod"))) && ((i.includes("create")) || (i.includes("generate")) || (i.includes("build")))) {
+      var image = prompt("Enter the name of image: ")
+      var pod_name = prompt("Enter the name of podadsf: ")
+      var stat = "2"
+      var final = stat + " " + image + " " + pod_name
+      
+      }
+  
+    else if (((i.includes("pods")) || (i.includes("pod"))) && ((i.includes("delete")) || (i.includes("remove")) || (i.includes("detach")))) {
+      var pod_name = prompt("Enter the name of podadsf: ")
+      var stat = "3"
+      var final = stat + " " + pod_name
+      
+      }
+  
+    else if (((i.includes("deployments")) || (i.includes("deploy")) || (i.includes("deployment"))) && ((i.includes("delete")) || (i.includes("remove")) || (i.includes("detach")))) {
+      var deployment_name = prompt("Enter the name of Deployment: ")
+      var stat = "4"
+      var final = stat + " " + deployment_name
+      }
+  
+    else if (((i.includes("deployments")) || (i.includes("deploy")) || (i.includes("deployment"))) && ((i.includes("expose"))  || (i.includes("display")))) {
+      var deployment_name = prompt("Enter the name of Deployment: ")
+      var port_no = prompt("Enter the port number where you want to export your deployment: ")
+      var expose_type = prompt(" 1. ClusterIP \n 2.ExternalNames \n 3.LoadBalancer 4.NodePort \n Enter the type which you want to export ")
+      var stat = "5"
+      var final = stat + " " + deployment_name + " " + port_no + " " + expose_type
+      }
+  
+    else if (((i.includes("deployments")) || (i.includes("deploy")) || (i.includes("deployment"))) && ((i.includes("scale")) || (i.includes("increase")) || (i.includes("decrease")) || (i.includes("scale up")) || (i.includes("scale down")))) {
+      var deployment_name = prompt("Enter the name of Deployment: ")
+      var replica = prompt("Enter number of replicas: ")
+      var stat = "6"
+      var final = stat + " " + deployment_name + " " + replica
+      }
+  
+    else if (((i.includes("pods")) || (i.includes("pod"))) && ((i.includes("show")) || (i.includes("get")) || (i.includes("list")))) {
+      var stat = "7"
+      var final = stat 
+      
+      }
+  
+    else if (((i.includes("deployments"))|| (i.includes("deployment")) || (i.includes("deploy"))) && ((i.includes("show")) || (i.includes("get")) || (i.includes("list")))) {
+      var stat = "8"
+      var final = stat 
+      
+      }
+    else if (((i.includes("service")) || (i.includes("services")) || (i.includes("svc"))) && ((i.includes("show")) || (i.includes("get")) || (i.includes("list")))) {
+      var stat = "9"
+      var final = stat
+      
+      }
+  
+    else if (((i.includes("all")) || (i.includes("everything"))) && ((i.includes("delete")) || (i.includes("remove")) || (i.includes("destroy")))) {
+      var stat = "10"
+      var final = stat 
+      }
+  
+    else {
+      var stat = "11"
+      var final = stat 
+      }
+      var xhr1 = new XMLHttpRequest();
+        xhr1.open("GET", "http://192.168.225.25/cgi-bin/terminal.py?k= " + final, "true")
+        xhr1.send();
+  
+        xhr1.onload = function ()
+	            {
+	        document.getElementById('kuberd2').innerHTML = xhr1.responseText; 
+        }
+}
+
+
+  // GUI 
+
+  function launch() {
+    var img=document.getElementById("iname").value;
+    var cont=document.getElementById("pname").value;
+    var xhr=new XMLHttpRequest();
+    xhr.open("GET","http://192.168.225.25/cgi-bin/launch.py?x="+img+"&y="+cont,"true");
+    xhr.send();
+    xhr.onload = function () { document.getElementById('guid2').innerHTML = xhr.responseText; } 
+  }
+     
+  function deploy() {
+    var img=document.getElementById("iname").value;
+    var cont=document.getElementById("dname").value;
+    var xhr=new XMLHttpRequest();
+    xhr.open("GET","http://192.168.225.25/cgi-bin/deployment.py?x="+img+"&d="+cont,"true");
+    xhr.send();
+    xhr.onload = function () { document.getElementById('guid2').innerHTML = xhr.responseText; } 
+  }
+
+  function expose() {
+    var cont=document.getElementById("dname").value;
+    var xhr=new XMLHttpRequest();
+    xhr.open("GET","http://192.168.225.25/cgi-bin/expose.py?d="+cont,"true");
+    xhr.send();
+    xhr.onload = function () { document.getElementById('guid2').innerHTML = xhr.responseText; } 
+  }
+
+  function scale() {
+    var cont=document.getElementById("dname").value;
+    var rep=document.getElementById("rno").value;
+    var xhr=new XMLHttpRequest();
+    xhr.open("GET","http://192.168.225.25/cgi-bin/replica.py?d= "+cont+" &z="+rep,"true");
+    xhr.send();
+    xhr.onload = function () { document.getElementById('guid2').innerHTML = xhr.responseText; } 
+  }
+
+  function del_pods() {
+	  var cont=document.getElementById("pname").value;
+	  var xhr = new XMLHttpRequest();
+	  xhr.open ( "GET", "http://192.168.225.25/cgi-bin/delete_pod.py?y= "+cont,"true");
+	  xhr.send();
+	  xhr.onload = function () { document.getElementById('guid2').innerHTML = xhr.responseText; } 
+  }
+
+  function del_deps() {
+	  var cont=document.getElementById("dname").value;
+	  var xhr = new XMLHttpRequest();
+	  xhr.open ( "GET", "http://192.168.225.25/cgi-bin/delete_dep.py?d= "+cont,"true");
+	  xhr.send();
+	  xhr.onload = function () { document.getElementById('guid2').innerHTML = xhr.responseText; } 
+  }
+
+  function list_pods() {
+	  var xhr = new XMLHttpRequest();
+	  xhr.open ( "GET", "http://192.168.225.25/cgi-bin/list.py","true");
+	  xhr.send();
+	  xhr.onload = function () { document.getElementById('guid2').innerHTML = xhr.responseText; } 
+  }
+
+  function list_deps() {
+	  var xhr = new XMLHttpRequest();
+	  xhr.open ( "GET", "http://192.168.225.25/cgi-bin/list_deployment.py","true");
+	  xhr.send();
+    xhr.onload = function () { document.getElementById('guid2').innerHTML = xhr.responseText; } 
+  }
+
+</script>
+</body>
+</html>
+
