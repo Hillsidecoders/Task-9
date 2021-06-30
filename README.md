@@ -29,4 +29,4 @@ Note - There should be webUI based menu display so that user can get to know wha
 
 📌 This app will help the user to run all the Kubernetes commands.
 
-Video Demo:- https://www.linkedin.com/posts/geetansh-sharma_worldrecordholder-training-internship-activity-6815983834362912768-wEKa
+Video Demo:- https://bit.ly/3w9jc1n
